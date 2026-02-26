@@ -6,20 +6,20 @@ import webbrowser
 import time
 
 
-WAKE_WORDS = ["Hey jhonnal", "john", "Hey john", "Hey jon"]
+WAKE_WORDS = ["Hello jhon", "john", "yo john", "Hey jon"]
 WAKE_WORDS = [word.lower() for word in WAKE_WORDS]
 
 
 
 def speak(text):
-    print("Cikel:", text)
+    print("jhon:", text)
 
 
 # =========================
 # TEXT TO SPEECH
 # =========================
 engine = pyttsx3.init()
-engine.setProperty("rate", 170)  # kecepatan bicara
+engine.setProperty("rate", 170) 
 engine.setProperty("volume", 1.0)
 
 def speak(text):
@@ -40,7 +40,7 @@ def listen():
         audio = recognizer.listen(source)
 
     try:
-        text = recognizer.recognize_google(audio, language="id-ID")
+        text = recognizer.recognize_google(audio, language="us-US")
         print("You: ", text)
         return text.lower()
     except sr.UnknownValueError:
@@ -57,7 +57,7 @@ def handle_command(text):
         return
 
     if "halo" in text or "hello" in text:
-        speak("Halo, saya aktif")
+        speak("hello, sir im active")
 
     elif "jam berapa" in text:
         now = datetime.now().strftime("%H:%M")
